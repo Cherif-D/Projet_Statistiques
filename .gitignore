@@ -1,0 +1,17 @@
+# Ignorer les environnements virtuels
+env/
+venv/
+ENV/
+.venv/
+.VENV/
+
+# Ignorer les notebooks Jupyter
+*.ipynb
+
+# Ignorer les fichiers système
+__pycache__/
+*.pyc
+.DS_Store
+
+# Optionnel : ignorer VS Code settings (facultatif mais courant)
+.vscode/
