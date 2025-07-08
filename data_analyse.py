@@ -4,12 +4,12 @@ from typing import Literal
 
 #IMPORT DU DATASET DE L INDEX DE QUALITE DE L AIR DE 6 VILLES
 aqi_data = pd.read_csv("Air_Quality.csv", header=0, index_col=0)
-print(f"Shape : {aqi_data.shape}")
-print(aqi_data.head(10))
-print(aqi_data.tail(10))
-print(f"description aqi_data : \n{aqi_data.describe()}")
-print(f"Nombre de ligne doublon : {len(aqi_data[aqi_data.duplicated() == True])}")
+aqi_data_shape = aqi_data.shape
+aqi_data_head = aqi_data.head(10)
+aqi_data_tail = aqi_data.tail(10)
+nb_doublon = len(aqi_data[aqi_data.duplicated() == True])
 
+#% DE REMPLISSAGE DE CHAQUE VARIABLE
 def barplot_na() -> go.Figure:
 
     fig = go.Figure()
@@ -37,13 +37,13 @@ def barplot_na() -> go.Figure:
         yaxis_title="%"
     )
 
-    return fig, nb_na, na_percent
+    return fig
 
 #VILLES CONCERNEES
-print(f"Ville du DataFrame : \n{aqi_data["City"].unique()}")
+data_city = aqi_data["City"].unique()
 
 #VALEUR MOYENNE POUR CHAQUE VARIABLE PAR VILLE
-print(f"Valeur moyenne pour chaque variable par ville : \n{aqi_data.groupby("City").mean(numeric_only=True)}")
+city_mean = aqi_data.groupby("City").mean(numeric_only=True)
 
 def boxplot(col:Literal['CO', 'CO2', 'NO2', 'SO2', 'O3', 'PM2.5', "PM10", "AQI"]) -> go.Figure:
 
@@ -71,18 +71,18 @@ def boxplot(col:Literal['CO', 'CO2', 'NO2', 'SO2', 'O3', 'PM2.5', "PM10", "AQI"]
 
     return fig
 
-
-
 #MATRICE DE CORRELATION DES VARIABLES PAR VILLE
 def matrice(city:Literal['Brasilia', 'Cairo', 'Dubai', 'London', 'New York', 'Sydney']=None) -> go.Figure:
 
+    drop_col = [col for col in ["City", "Mois"] if col in aqi_data.columns]
+
     if city:
 
-        corr = aqi_data[aqi_data["City"] == city].drop("City",axis=1).corr()
+        corr = aqi_data[aqi_data["City"] == city].drop(columns=drop_col).corr()
 
     else :
 
-        corr = aqi_data.drop("City",axis=1).corr()
+        corr = aqi_data.drop(columns=drop_col).corr()
 
     fig = go.Figure(
         data=go.Heatmap(
@@ -98,3 +98,7 @@ def matrice(city:Literal['Brasilia', 'Cairo', 'Dubai', 'London', 'New York', 'Sy
 
     return fig
 
+#MOYENNE DES VARIABLES PAR MOIS
+aqi_data.index = pd.to_datetime(aqi_data.index)
+aqi_data["Mois"] = aqi_data.index.month_name()
+mounth_mean = aqi_data.groupby("Mois").mean(numeric_only=True)
