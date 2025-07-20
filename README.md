@@ -1,4 +1,4 @@
-# 🌫️ Projet Statistiques – Analyse de la Qualité de l’Air
+# 🌫️ Projet Statistiques – Analyse de la qualité de l'air (AQI)
 > **Dataset utilisé** : [Air Quality 2024 – Kaggle](https://www.kaggle.com/datasets/youssefelebiary/air-quality-2024)
 
 # 🎯 Objectif
