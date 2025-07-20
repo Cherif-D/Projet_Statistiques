@@ -1,4 +1,5 @@
 # 🌫️ Projet Statistiques – Analyse de la Qualité de l’Air
+> **Dataset utilisé** : [Air Quality 2024 – Kaggle](https://www.kaggle.com/datasets/youssefelebiary/air-quality-2024)
 
 # 🎯 Objectif
 Ce projet a pour but d’identifier les facteurs influençant la qualité de l’air (AQI) à partir de données environnementales. Deux approches complémentaires sont explorées :
