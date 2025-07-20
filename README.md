@@ -1,5 +1,6 @@
-🌫️ Projet Statistiques – Analyse de la Qualité de l’Air
-🎯 Objectif
+# 🌫️ Projet Statistiques – Analyse de la Qualité de l’Air
+
+# 🎯 Objectif
 Ce projet a pour but d’identifier les facteurs influençant la qualité de l’air (AQI) à partir de données environnementales. Deux approches complémentaires sont explorées :
 
 Prédiction directe de l’AQI à l’aide de méthodes de régression.
@@ -12,7 +13,7 @@ Sont-ils les mêmes selon les villes ?
 
 Sont-ils constants dans le temps ?
 
-🧪 Méthodologie
+# 🧪 Méthodologie
 Prétraitement : nettoyage des données, gestion des valeurs manquantes, encodage des variables.
 
 Exploration des données : visualisations, corrélations, comparaisons multi-villes.
@@ -27,14 +28,14 @@ Analyse de l’importance des variables et interprétation des résultats.
 
 Approche multi-échelle : une analyse comparative entre plusieurs villes et périodes temporelles.
 
-📈 Résultats
+# 📈 Résultats
 Identification de polluants clés (comme PM2.5, PM10) fortement liés à l’AQI.
 
 Les facteurs explicatifs varient selon les villes, ce qui reflète des dynamiques locales spécifiques.
 
 Les modèles développés offrent des performances satisfaisantes (MSE, RMSE), confirmant la robustesse de l’approche.
 
-👥 Contributeurs
+# 👥 Contributeurs
 Ce projet a été réalisé en collaboration par :
 
 TREZISE Komi 
